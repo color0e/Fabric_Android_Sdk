@@ -6,7 +6,7 @@
 <pre><code>mvn install -DskipTests</code></pre>
 <pre><code>결과물:Fabric_Android_Sdk/target/fabric-sdk-java-1.1.0-alpha.jar</code></pre>
 
-### Fabric Helper
+### Fabric Helper (package org.hyperledger.fabric.sdk)
 #### ※필독사항:Fabrichelper.java에서 서버아이피지정하는 부분을 자신이 테스트하는 서버아이피로 변경
 <pre><code>위치:Fabric_Android_Sdk/src/main/java/org/hyperledger/fabric/sdk/Fabrichelper.java</code></pre>
 #### Fabric Ca Client 생성
