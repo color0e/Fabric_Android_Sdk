@@ -7,7 +7,7 @@
 <pre><code>결과물:Fabric_Android_Sdk/target/fabric-sdk-java-1.1.0-alpha.jar</code></pre>
 
 ### Fabric Helper
-#### ※필독사항:Fabrichelper.java에서 grpc 주소부분을 자신이 테스트하는 서버아이피로 변경
+#### ※필독사항:Fabrichelper.java에서 서버아이피지정하는 부분을 자신이 테스트하는 서버아이피로 변경
 <pre><code>위치:Fabric_Android_Sdk/src/main/java/org/hyperledger/fabric/sdk/Fabrichelper.java</code></pre>
 <pre><code>HFCAClient caClient = getHfCaClient("http://Fabric_ca_ip_address:7054", null);</code></pre>
 <pre><code>AppUser admin = getAdmin(caClient);</code></pre>
