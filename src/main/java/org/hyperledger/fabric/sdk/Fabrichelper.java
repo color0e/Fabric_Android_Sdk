@@ -180,11 +180,11 @@ public class Fabrichelper {
     public static Channel getChannel(HFClient client) throws InvalidArgumentException, TransactionException {
         // initialize channel
         // peer name and endpoint in fabcar network
-        Peer peer = client.newPeer("peer0.org1.example.com", "grpc://220.123.29.45:7051");
+        Peer peer = client.newPeer("peer0.org1.example.com", "grpc://ipaddress:7051");
         // eventhub name and endpoint in fabcar network
-        EventHub eventHub = client.newEventHub("eventhub01", "grpc://220.123.29.45:7053");
+        EventHub eventHub = client.newEventHub("eventhub01", "grpc://ipaddress:7053");
         // orderer name and endpoint in fabcar network
-        Orderer orderer = client.newOrderer("orderer.example.com", "grpc://220.123.29.45:7050");
+        Orderer orderer = client.newOrderer("orderer.example.com", "grpc://ipaddress:7050");
         // channel name in fabcar network
         Channel channel = client.newChannel("mychannel");
         channel.addPeer(peer);
