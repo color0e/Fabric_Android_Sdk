@@ -64,16 +64,16 @@ public class Fabrichelper {
      * @throws ProposalException
      * @throws InvalidArgumentException
      */
-    public static String queryBlockChain(HFClient client,String[] args) throws ProposalException, InvalidArgumentException {
+    public static String queryBlockChain(HFClient client,String ccid,String fcnname,String[] args) throws ProposalException, InvalidArgumentException {
         // get channel instance from client
         Channel channel = client.getChannel("mychannel");
         // create chaincode request
         QueryByChaincodeRequest qpr = client.newQueryProposalRequest();
         // build cc id providing the chaincode name. Version is omitted here.
-        ChaincodeID fabcarCCId = ChaincodeID.newBuilder().setName("fabcar").build();
+        ChaincodeID fabcarCCId = ChaincodeID.newBuilder().setName(ccid).build();
         qpr.setChaincodeID(fabcarCCId);
         // CC function to be called
-        qpr.setFcn("queryAllCars");
+        qpr.setFcn(fcnname);
         qpr.setArgs(args);
         Collection<ProposalResponse> res = channel.queryByChaincode(qpr);
         // display response
@@ -91,7 +91,7 @@ public class Fabrichelper {
      * @throws ProposalException
      * @throws InvalidArgumentException
      */
-    public static boolean invokeBlockChain(HFClient client,String[] args) throws ProposalException, InvalidArgumentException,Exception {
+    public static boolean invokeBlockChain(HFClient client,String ccid,String fcnname,String[] args) throws ProposalException, InvalidArgumentException,Exception {
         Collection<ProposalResponse> responses;
         Collection<ProposalResponse> successful = new LinkedList<>();
         Collection<ProposalResponse> failed = new LinkedList<>();
@@ -102,10 +102,10 @@ public class Fabrichelper {
         // create chaincode request
         TransactionProposalRequest tpr = client.newTransactionProposalRequest();
         // build cc id providing the chaincode name. Version is omitted here.
-        ChaincodeID fabcarCCId = ChaincodeID.newBuilder().setName("fabcar").build();
+        ChaincodeID fabcarCCId = ChaincodeID.newBuilder().setName(ccid).build();
         tpr.setChaincodeID(fabcarCCId);
         // CC function to be called
-        tpr.setFcn("createCar");
+        tpr.setFcn(fcnname);
         //String[] strs = new String[]{"CAR10","JANG","JANG","JANG","JANG"};
         tpr.setArgs(args);
         Map<String, byte[]> tm2 = new HashMap<>();
@@ -130,7 +130,7 @@ public class Fabrichelper {
 
         if (failed.size() > 0) {
             ProposalResponse firstTransactionProposalResponse = failed.iterator().next();
-            System.err.println("Not enough endorsers for invoke (move a,b,100):" + failed.size() + " endorser error: " +
+            System.err.println("Not enough endorsers for invoke :" + failed.size() + " endorser error: " +
                     firstTransactionProposalResponse.getMessage() +
                     ". Was verified: " + firstTransactionProposalResponse.isVerified());
         }
