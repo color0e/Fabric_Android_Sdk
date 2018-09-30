@@ -26,9 +26,9 @@
 <pre><code>String[] iargs=new String[]{"CAR10","WOW","WOW","WOW","WOW"};</code></pre>
 <pre><code>String[] qargs=new String[]{"null"};</code></pre>
 #### invoke
-<pre><code>invokeBlockChain(client,iargs);</code></pre>
+<pre><code>invokeBlockChain(client,"fabcar","createCar",iargs);</code></pre>
 #### query
-<pre><code>String qresult=queryBlockChain(client,qargs);</code></pre>
+<pre><code>String qresult=queryBlockChain(client,"fabcar","queryAllCars",qargs);</code></pre>
 <pre><code>System.out.println("query result:"+qresult);</code></pre>
 
 ### Reference
