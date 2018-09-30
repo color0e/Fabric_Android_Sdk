@@ -182,13 +182,13 @@ public class Fabrichelper {
         // peer name and endpoint in fabcar network
         Peer peer = client.newPeer("peer0.org1.example.com", "grpc://ipaddress:7051");
         // eventhub name and endpoint in fabcar network
-        EventHub eventHub = client.newEventHub("eventhub01", "grpc://ipaddress:7053");
+        //EventHub eventHub = client.newEventHub("eventhub01", "grpc://ipaddress:7053");
         // orderer name and endpoint in fabcar network
         Orderer orderer = client.newOrderer("orderer.example.com", "grpc://ipaddress:7050");
         // channel name in fabcar network
         Channel channel = client.newChannel("mychannel");
         channel.addPeer(peer);
-        channel.addEventHub(eventHub);
+        //channel.addEventHub(eventHub);
         channel.addOrderer(orderer);
         channel.initialize();
         return channel;
